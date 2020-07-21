@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit", "setuptools"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "data_generator"
+author = "linkedai"
+author-email = "diego@linked.ai"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires-python=">=3.7"
+requires = [
+    "opencv-python>=3.4,<4",
+    "pyyaml",
+    "jinja2"
+]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-sugar",
+    "cytoolz"
+]
