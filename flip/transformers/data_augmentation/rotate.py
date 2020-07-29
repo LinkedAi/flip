@@ -1,8 +1,8 @@
 import numpy as np
 
-from data_generator.transformers.constants import Rotation
-from data_generator.transformers.transform import Transformer
-from data_generator.transformers.utils import rotate_bound
+from flip.transformers.constants import Rotation
+from flip.transformers.transformer import Transformer
+from flip.transformers.utils import rotate_bound
 
 
 class Rotate(Transformer):

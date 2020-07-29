@@ -1,5 +1,4 @@
 import typing as tp
-from abc import ABC, abstractmethod
 
 from flip import parser
 from flip.transformers.element import Element

@@ -22,7 +22,7 @@ class SaveImage(Transformer):
             self.out_dir, f"{self.name}.jpg"
         )  # "{self.name}.{extension}"
 
-        image = utils.inv_chanels(element.fimg)
+        image = utils.inv_channels(element.fimg)
         cv2.imwrite(image_path, image)
 
         return element

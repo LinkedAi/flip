@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def inv_chanels(image):
+def inv_channels(image):
     image[..., :3] = image[..., (2, 1, 0)]
     return image
 

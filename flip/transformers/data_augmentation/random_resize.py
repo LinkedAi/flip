@@ -1,5 +1,5 @@
-from data_generator.transformers.transform import Transformer
-from data_generator.transformers.constants import Resize
+from flip.transformers.transformer import Transformer
+from flip.transformers.constants import Resize
 
 
 class RandomResize(Transformer):

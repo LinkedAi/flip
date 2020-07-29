@@ -111,7 +111,7 @@ def createElement(objects_paths, backgrounds_paths):
 
     # get random background
     background_idx = np.random.randint(len(backgrounds_paths))
-    background_image = cm.utils.inv_chanels(
+    background_image = cm.utils.inv_channels(
         cv2.imread(backgrounds_paths[background_idx], cv2.IMREAD_UNCHANGED,)
     )
 
@@ -153,7 +153,7 @@ def createElement(objects_paths, backgrounds_paths):
 
 
 def createChild(path):
-    img = cm.utils.inv_chanels(cv2.imread(path, cv2.IMREAD_UNCHANGED))
+    img = cm.utils.inv_channels(cv2.imread(path, cv2.IMREAD_UNCHANGED))
 
     split_name_temp = re.split(r"/|\\", path)
     split_name = split_name_temp[2]
