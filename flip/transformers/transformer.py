@@ -1,9 +1,8 @@
 import typing as tp
 from abc import ABC, abstractmethod
 
-from data_generator import parser
-from data_generator.transformers import utils
-from data_generator.transformers.element import Element
+from flip import parser
+from flip.transformers.element import Element
 
 
 class Transformer:

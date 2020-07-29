@@ -1,5 +1,5 @@
 """
-data_generator
+flip
 """
 
 __version__ = "0.0.1"

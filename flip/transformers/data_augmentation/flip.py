@@ -1,10 +1,10 @@
 import cv2
 import numpy as np
 
-from data_generator.transformers.constants import Flip
-from data_generator.transformers.transformer import Transformer
+from flip.transformers.constants import Flip
+from flip.transformers.transformer import Transformer
 
-from data_generator import parser
+from flip import parser
 
 
 @parser.parseable

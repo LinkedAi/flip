@@ -88,6 +88,7 @@ celerybeat-schedule
 
 experiments/images
 .vscode
+.idea/
 
 # SageMath parsed files
 *.sage.py

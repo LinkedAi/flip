@@ -1,9 +1,7 @@
-import numpy as np
-from dataclasses import dataclass
-import typing as tp
-
-
 class Element:
+    """The Element class represents the base class than can be use by a Transform
+    """
+
     def __init__(self, **kwargs):
 
         for key, value in kwargs.items():
