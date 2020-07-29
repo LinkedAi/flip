@@ -1,8 +1,8 @@
 import cv2
 
-from data_generator.transformers.element import Element
-from data_generator.transformers.transformer import Transformer
-from data_generator.transformers import utils
+from flip.transformers.element import Element
+from flip.transformers.transformer import Transformer
+from flip.transformers import utils
 
 
 class Draw(Transformer):

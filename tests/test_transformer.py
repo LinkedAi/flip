@@ -2,8 +2,8 @@ import typing as tp
 
 import cytoolz as cz
 
-import data_generator.transformers as tr
-from data_generator import parser
+import flip.transformers as tr
+from flip import parser
 
 
 @parser.parseable
