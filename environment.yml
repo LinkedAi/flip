@@ -1,4 +1,4 @@
-name: data_generator
+name: flip
 
 channels:
   - conda-forge

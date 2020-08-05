@@ -3,7 +3,7 @@ requires = ["flit", "setuptools"]
 build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
-module = "data_generator"
+module = "flip"
 author = "linkedai"
 author-email = "diego@linked.ai"
 classifiers = ["License :: OSI Approved :: MIT License"]
