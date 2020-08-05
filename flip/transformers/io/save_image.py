@@ -4,7 +4,7 @@ import numpy as np
 
 from flip.transformers import Transformer
 from flip.transformers import Element
-from flip.transformers import utils
+from flip import utils
 
 
 class SaveImage(Transformer):

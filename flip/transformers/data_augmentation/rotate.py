@@ -2,7 +2,7 @@ import numpy as np
 
 from flip.transformers.constants import Rotation
 from flip.transformers.transformer import Transformer
-from flip.transformers.utils import rotate_bound
+from flip.utils import rotate_bound
 
 
 class Rotate(Transformer):

@@ -2,7 +2,7 @@ import cv2
 
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
-from flip.transformers import utils
+from flip import utils
 
 
 class Draw(Transformer):
