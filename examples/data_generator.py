@@ -111,12 +111,12 @@ def create_element(objects_paths, backgrounds_paths):
 
     # get random background
     background_idx = np.random.randint(len(backgrounds_paths))
-    background_image = flip.transformers.utils.inv_channels(
+    background_image = flip.utils.inv_channels(
         cv2.imread(backgrounds_paths[background_idx], cv2.IMREAD_UNCHANGED,)
     )
 
     # create new element
-    el = flip.Element(background_image, objects)
+    el = flip.transformers.Element(image=background_image, objects=objects)
 
     # Transformer element
     transformObjects = [
@@ -158,7 +158,7 @@ def create_child(path):
     split_name_temp = re.split(r"/|\\", path)
     split_name = split_name_temp[2]
 
-    obj = flip.Element(img, name=split_name)
+    obj = flip.transformers.Element(image=img, name=split_name)
 
     return obj
 
