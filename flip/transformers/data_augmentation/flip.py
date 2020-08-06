@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-from flip.transformers.constants import Flip
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
 
@@ -10,7 +9,13 @@ from flip import parser
 
 @parser.parseable
 class Flip(Transformer):
-    def __init__(self, mode: Flip = Flip.random):
+    """ Flip image of Element
+
+        Parameters
+        ----------
+        mode : {'random', 'x', 'y'}, default='random'
+    """
+    def __init__(self, mode='random'):
         self.mode = mode
 
     def map(self, element: Element) -> Element:
