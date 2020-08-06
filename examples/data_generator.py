@@ -120,7 +120,7 @@ def create_element(objects_paths, backgrounds_paths):
 
     # Transformer element
     transform_objects = [
-        flip.transformers.data_augmentation.Rotate(ts.const.Rotation.random, min=-30, max=30),
+        flip.transformers.data_augmentation.Rotate(mode='random', min=-30, max=30),
         flip.transformers.data_augmentation.Flip(mode='y'),
         # ts.RandomResize(mode=ts.const.Resize.symmetricw, wmin=160, wmax=200, hmin=160, hmax=200)
     ]

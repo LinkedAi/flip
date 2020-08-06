@@ -15,8 +15,13 @@ class Flip(Transformer):
         ----------
         mode : {'random', 'x', 'y'}, default='random'
     """
+    _SUPPORTED_MODES = {'random', 'x', 'y'}
+
     def __init__(self, mode='random'):
         self.mode = mode
+
+        if self.mode not in self._SUPPORTED_MODES:
+            raise ValueError("Mode '{0:s}' not supported. ".format(self.mode))
 
     def map(self, element: Element) -> Element:
         assert element, "Element cannot be None"
