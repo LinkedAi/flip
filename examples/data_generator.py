@@ -122,32 +122,34 @@ def create_element(objects_paths, backgrounds_paths):
     transform_objects = [
         flip.transformers.data_augmentation.Rotate(mode='random', min=-30, max=30),
         flip.transformers.data_augmentation.Flip(mode='y'),
-        # ts.RandomResize(mode=ts.const.Resize.symmetricw, wmin=160, wmax=200, hmin=160, hmax=200)
+        # flip.transformers.data_augmentation.RandomResize(mode='symmetric_w', w_min=160, w_max=200, h_min=160, h_max=200)
     ]
 
     name = uuid.uuid4()
-    transform = ts.Compose(
+    transform = flip.transformers.Compose(
         [
-            ts.ApplyToObjects(transform_objects),
+            # ts.ApplyToObjects(transform_objects),
             # ts.daug.RotateElement(ts.const.Rotation.ninety),
-            ts.ObjectsRandomResize(
-                mode=ts.const.Resize.symmetricw, wmin=0.25, wmax=0.4, hmin=0.1, hmax=0.4
-            ),
-            ts.ObjectsRandomPosition(
-                xmin=0, ymin=0.4, xmax=0.7, ymax=0.7, mode=ts.const.Position.percentage
-            ),
-            # ts.daug.FlipElement(ts.const.Flip.x),
-            ts.ObjectsGetBGColor(),
-            lr.CreateTags(),
-            ts.DrawElement(),
+            # flip.transformers.data_augmentation.ObjectsRandomResize(
+            #     mode='symmetric_w', w_min=0.25, w_max=0.4, h_min=0.1, h_max=0.4
+            # ), TODO: Modify to work with Apply to Objects
+            # flip.transformers.ObjectsRandomPosition(
+            #     xmin=0, ymin=0.4, xmax=0.7, ymax=0.7, mode=ts.const.Position.percentage
+            # ), TODO: Modify to work with Apply to Objects
+            flip.transformers.data_augmentation.Flip('x'),
+            # ts.ObjectsGetBGColor(), TODO: Modify to work with Apply to Objects
             # lr.CreateTags(),
-            sr.SaveImage(OUT_DIR, name),
+            flip.transformers.domain_randomization.Draw(),
+            # lr.CreateTags(),
+            # sr.SaveImage(OUT_DIR, name),
             # sr.csv.CreateCSV(OUT_DIR, name)
-            sr.json.CreateJson(OUT_DIR, name),
+            # sr.json.CreateJson(OUT_DIR, name),
         ]
     )
 
     el = transform(el)
+
+    print(el)
 
     return el
 
