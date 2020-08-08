@@ -26,9 +26,9 @@ class Flip(Transformer):
     def map(self, element: Element) -> Element:
         assert element, "Element cannot be None"
 
-        if self.mode == Flip.x:
+        if self.mode == 'x':
             direction = 0
-        elif self.mode == Flip.y:
+        elif self.mode == 'y':
             direction = 1
         else:
             direction = np.random.randint(low=0, high=2)
