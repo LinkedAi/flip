@@ -147,7 +147,7 @@ def create_element(objects_paths, backgrounds_paths):
         ]
     )
 
-    el = transform(el)
+    [el] = transform(el)
 
     print(el)
 
