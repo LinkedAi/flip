@@ -133,9 +133,9 @@ def create_element(objects_paths, backgrounds_paths):
             # flip.transformers.data_augmentation.ObjectsRandomResize(
             #     mode='symmetric_w', w_min=0.25, w_max=0.4, h_min=0.1, h_max=0.4
             # ), TODO: Modify to work with Apply to Objects
-            # flip.transformers.ObjectsRandomPosition(
-            #     xmin=0, ymin=0.4, xmax=0.7, ymax=0.7, mode=ts.const.Position.percentage
-            # ), TODO: Modify to work with Apply to Objects
+            flip.transformers.domain_randomization.ObjectsRandomPosition(
+                x_min=0, y_min=0.4, x_max=0.7, y_max=0.7, mode='percentage'
+            ),
             flip.transformers.data_augmentation.Flip('x'),
             # ts.ObjectsGetBGColor(), TODO: Modify to work with Apply to Objects
             # lr.CreateTags(),

@@ -7,9 +7,17 @@ from flip.transformers.transformer import Transformer
 
 # Only for element with objects
 class ObjectsRandomPosition(Transformer):
+    """ Set a random position to the objects of Element
+
+            Parameters
+            ----------
+            mode : {'random', 'parent'}, default='random'
+        """
+    _SUPPORTED_MODES = {'random', 'percentage'}
+
     def __init__(
         self,
-        mode: Position = Position.random,
+        mode='random',
         x_min=None,
         x_max=None,
         y_min=None,
@@ -21,13 +29,16 @@ class ObjectsRandomPosition(Transformer):
         self.y_max = y_max
         self.mode = mode
 
+        if self.mode not in self._SUPPORTED_MODES:
+            raise ValueError("Mode '{0:s}' not supported. ".format(self.mode))
+
     def map(self, element: Element) -> Element:
         assert element, "Element cannot be None"
 
         el_h: int = element.image.shape[0]
         el_w: int = element.image.shape[1]
 
-        if self.mode == Position.percentage:
+        if self.mode == 'percentage':
             x_min = (
                 (self.x_min if self.x_min <= 1 else (self.x_min % 100) / 100) * el_w
                 if self.x_min is not None
