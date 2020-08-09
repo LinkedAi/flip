@@ -1,7 +1,7 @@
 import os
 
-from ..transforms import Element
-from ..common import Transformer
+from flip.transformers.element import Element
+from flip.transformers.transformer import Transformer
 
 
 class CreateCSV(Transformer):
