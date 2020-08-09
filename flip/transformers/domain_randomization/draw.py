@@ -25,8 +25,8 @@ class Draw(Transformer):
                 y=obj.y,
             )
 
-        plt.imshow(image)
-        plt.show()
+        # plt.imshow(image)
+        # plt.show()
         print("Image created")
 
         element.created_image = image

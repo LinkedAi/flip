@@ -141,15 +141,13 @@ def create_element(objects_paths, backgrounds_paths):
             # lr.CreateTags(),
             flip.transformers.domain_randomization.Draw(),
             # lr.CreateTags(),
-            # sr.SaveImage(OUT_DIR, name),
+            flip.transformers.io.SaveImage(OUT_DIR, name),
             # sr.csv.CreateCSV(OUT_DIR, name)
             # sr.json.CreateJson(OUT_DIR, name),
         ]
     )
 
     [el] = transform(el)
-
-    print(el)
 
     return el
 
