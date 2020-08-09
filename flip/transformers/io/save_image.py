@@ -2,9 +2,9 @@ import os
 import cv2
 import numpy as np
 
-from flip.transformers import Transformer
-from flip.transformers import Element
-from flip.transformers import utils
+from flip.transformers.transformer import Transformer
+from flip.transformers.element import Element
+from flip import utils
 
 
 class SaveImage(Transformer):

@@ -1,8 +1,9 @@
 import cv2
+import matplotlib.pyplot as plt
 
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
-from flip.transformers import utils
+from flip import utils
 
 
 class Draw(Transformer):
@@ -24,10 +25,10 @@ class Draw(Transformer):
                 y=obj.y,
             )
 
-        # plt.imshow(image)
-        # plt.show()
-        # print("Image created")
+        plt.imshow(image)
+        plt.show()
+        print("Image created")
 
-        element.fimg = image
+        element.created_image = image
 
         return element
