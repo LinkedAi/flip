@@ -9,7 +9,7 @@ author-email = "diego@linked.ai"
 classifiers = ["License :: OSI Approved :: MIT License"]
 requires-python=">=3.7"
 requires = [
-    "opencv-python>=3.4,<4",
+    "opencv-python>=4.3",
     "pyyaml",
     "jinja2"
 ]

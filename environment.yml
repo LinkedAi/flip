@@ -5,3 +5,4 @@ channels:
 
 dependencies:
   - python=3.7
+  - opencv-python=4.3

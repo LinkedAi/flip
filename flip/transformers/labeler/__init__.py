@@ -1,1 +1,1 @@
-from .core import *
+from .create_bounding_boxes import CreateBoundingBoxes

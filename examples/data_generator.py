@@ -138,12 +138,11 @@ def create_element(objects_paths, backgrounds_paths):
             ),
             flip.transformers.data_augmentation.Flip('x'),
             # ts.ObjectsGetBGColor(), TODO: Modify to work with Apply to Objects
-            # lr.CreateTags(),
             flip.transformers.domain_randomization.Draw(),
-            # lr.CreateTags(),
+            flip.transformers.labeler.CreateBoundingBoxes(),
             flip.transformers.io.SaveImage(OUT_DIR, name),
-            # sr.csv.CreateCSV(OUT_DIR, name)
-            # sr.json.CreateJson(OUT_DIR, name),
+            # flip.transformers.io.CreateCSV(OUT_DIR, name)
+            flip.transformers.io.CreateJson(OUT_DIR, name),
         ]
     )
 

@@ -1,11 +1,10 @@
-import json
-from ..transforms import Element
-from ..common import Transformer
 import cv2
-import matplotlib.pyplot as plt
+
+from flip.transformers.element import Element
+from flip.transformers.transformer import Transformer
 
 
-class CreateTags(Transformer):
+class CreateBoundingBoxes(Transformer):
     def map(self, element: Element) -> Element:
         assert element, "element cannot be None"
 
@@ -16,12 +15,10 @@ class CreateTags(Transformer):
     def create(self, element):
         array = []
         for obj in element.objects:
-            new_x, new_y, new_w, new_h = self.boundingBox(obj.image)
-            data = {}
-            data["name"] = obj.name
-            data["pos"] = {}
-            data["pos"]["x"] = obj.x + new_x
-            data["pos"]["y"] = obj.y + new_y
+            new_x, new_y, new_w, new_h = self.bounding_box(obj.image)
+            data = {"name": obj.name, "pos": {}}
+            data["pos"]["x"] = (obj.x or 0) + new_x
+            data["pos"]["y"] = (obj.y or 0) + new_y
             data["pos"]["w"] = new_w
             data["pos"]["h"] = new_h
 
@@ -29,16 +26,17 @@ class CreateTags(Transformer):
 
         return array
 
-    def boundingBox(self, img):
+    def bounding_box(self, image):
         """
-    Args:
-      image: image to process its width and height
-    Description:
-      This function
-    Returns:
-    """
+        Args:
+          image: image to process its width and height
+        Description:
+          This function
+        Returns:
+        """
+
         # Canny edge detection - edge gradient
-        edged = cv2.Canny(img, 10, 250)
+        edged = cv2.Canny(image, 10, 250)
 
         # Morphological Transformations
         # applying closing function
@@ -61,6 +59,6 @@ class CreateTags(Transformer):
             x, y, w, h = cv2.boundingRect(c)
 
             if w > 50 and h > 50:
-                new_img = img[y : y + h, x : x + w]
+                new_img = image[y: y + h, x: x + w]
 
         return x, y, new_img.shape[1], new_img.shape[0]
