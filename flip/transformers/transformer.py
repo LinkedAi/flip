@@ -74,5 +74,5 @@ class ApplyToObjects(Transformer):
     def map(self, element: Element) -> Element:
         for obj in element.objects:
             for system in self.transforms:
-                obj = system.map(obj)
+                obj = system.map(obj, parent=element)
         return element

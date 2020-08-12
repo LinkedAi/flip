@@ -122,7 +122,12 @@ def create_element(objects_paths, backgrounds_paths):
     transform_objects = [
         flip.transformers.data_augmentation.Rotate(mode='random'),
         flip.transformers.data_augmentation.Flip(mode='y'),
-        # flip.transformers.data_augmentation.RandomResize(mode='symmetric_w', w_min=160, w_max=200, h_min=160, h_max=200)
+        flip.transformers.data_augmentation.RandomResize(
+            mode='symmetric_w',
+            relation='parent',
+            w_min=0.25,
+            w_max=0.5
+        )
     ]
 
     name = uuid.uuid4()
