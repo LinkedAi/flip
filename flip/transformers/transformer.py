@@ -61,3 +61,18 @@ class Compose(Transformer):
             elements = transformer(elements)
 
         return elements
+
+
+@parser.parseable
+class ApplyToObjects(Transformer):
+    def __init__(self, transforms: tp.List[Transformer]):
+        if hasattr(transforms, "__iter__"):
+            self.transforms = transforms
+        else:
+            self.transforms = [transforms]
+
+    def map(self, element: Element) -> Element:
+        for obj in element.objects:
+            for system in self.transforms:
+                obj = system.map(obj)
+        return element

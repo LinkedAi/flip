@@ -120,7 +120,7 @@ def create_element(objects_paths, backgrounds_paths):
 
     # Transformer element
     transform_objects = [
-        flip.transformers.data_augmentation.Rotate(mode='random', min=-30, max=30),
+        flip.transformers.data_augmentation.Rotate(mode='random'),
         flip.transformers.data_augmentation.Flip(mode='y'),
         # flip.transformers.data_augmentation.RandomResize(mode='symmetric_w', w_min=160, w_max=200, h_min=160, h_max=200)
     ]
@@ -128,7 +128,7 @@ def create_element(objects_paths, backgrounds_paths):
     name = uuid.uuid4()
     transform = flip.transformers.Compose(
         [
-            # ts.ApplyToObjects(transform_objects),
+            flip.transformers.ApplyToObjects(transform_objects),
             # ts.daug.RotateElement(ts.const.Rotation.ninety),
             # flip.transformers.data_augmentation.ObjectsRandomResize(
             #     mode='symmetric_w', w_min=0.25, w_max=0.4, h_min=0.1, h_max=0.4
