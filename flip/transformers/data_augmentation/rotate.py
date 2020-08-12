@@ -15,7 +15,7 @@ class Rotate(Transformer):
 
     _SUPPORTED_MODES = {'random', '90', 'upside_down'}
 
-    def __init__(self, mode='random', min=0, max=0):
+    def __init__(self, mode='random', min=0, max=360):
         self.mode = mode
 
         if self.mode not in self._SUPPORTED_MODES:
