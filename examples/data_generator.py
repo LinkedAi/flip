@@ -125,8 +125,8 @@ def create_element(objects_paths, backgrounds_paths):
         flip.transformers.data_augmentation.RandomResize(
             mode='symmetric_w',
             relation='parent',
-            w_min=0.25,
-            w_max=0.5
+            w_percentage_min=0.2,
+            w_percentage_max=0.5
         )
     ]
 

@@ -78,7 +78,6 @@ class RandomResize(Transformer):
                 else np.random.randint(low=h_min, high=h_max,)
             )
             w = element.image.shape[1] * (h / element.image.shape[0])
-            w = int(w)
         elif self.mode == 'symmetric_w':
             w = (
                 w_min
@@ -86,7 +85,6 @@ class RandomResize(Transformer):
                 else np.random.randint(low=w_min, high=w_max,)
             )
             h = element.image.shape[0] * (w / element.image.shape[1])
-            h = int(h)
         else:
             w = (
                 w_min
@@ -99,6 +97,9 @@ class RandomResize(Transformer):
                 if h_min == h_max is not None
                 else np.random.randint(low=h_min, high=h_max,)
             )
+
+        h = int(h)
+        w = int(w)
 
         element.image = cv2.resize(element.image, (w, h))
 

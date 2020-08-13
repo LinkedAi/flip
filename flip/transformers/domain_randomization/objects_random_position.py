@@ -9,10 +9,10 @@ from flip.transformers.transformer import Transformer
 class ObjectsRandomPosition(Transformer):
     """ Set a random position to the objects of Element
 
-            Parameters
-            ----------
-            mode : {'random', 'parent'}, default='random'
-        """
+        Parameters
+        ----------
+        mode : {'random', 'percentage'}, default='random'
+    """
     _SUPPORTED_MODES = {'random', 'percentage'}
 
     def __init__(
@@ -70,21 +70,29 @@ class ObjectsRandomPosition(Transformer):
             obj_h: int = int(obj.image.shape[0])
             obj_w: int = int(obj.image.shape[1])
 
+            # Check if objects overlap, max attempts = 10
+            attempts = 0
             while True:
                 obj.x = np.random.randint(
                     low=max(0, x_min - obj_w / 2), high=min(x_max, el_w),
                 )
 
-                if obj.x > last_x + obj_w / 2 or obj.x < last_x - obj_w / 2:
+                if obj.x > last_x + obj_w / 2 or obj.x < last_x - obj_w / 2 or attempts > 10:
                     break
 
+                attempts += 1
+
+            # Check if objects overlap, max attempts = 10
+            attempts = 0
             while True:
                 obj.y = np.random.randint(
                     low=max(0, y_min - obj_h / 2), high=min(y_max, el_h),
                 )
 
-                if obj.y > last_y + obj_h / 2 or obj.y < last_y - obj_h / 2:
+                if obj.y > last_y + obj_h / 2 or obj.y < last_y - obj_h / 2 or attempts > 10:
                     break
+
+                attempts += 1
 
             last_x, last_y = obj.x, obj.y
 
