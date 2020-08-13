@@ -55,7 +55,7 @@ class RandomResize(Transformer):
         if self.mode not in self._SUPPORTED_MODES:
             raise ValueError("Relation '{0:s}' not supported. ".format(self.relation))
 
-    def map(self, element: Element, parent:None) -> Element:
+    def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
 
         if self.relation == 'parent':

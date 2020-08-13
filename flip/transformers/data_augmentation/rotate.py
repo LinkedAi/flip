@@ -28,7 +28,7 @@ class Rotate(Transformer):
         else:
             self.angles = [min, max]
 
-    def map(self, element: Element) -> Element:
+    def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
 
         if self.mode == 'upside_down' or self.mode == 'ninety':

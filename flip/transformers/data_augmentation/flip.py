@@ -23,7 +23,7 @@ class Flip(Transformer):
         if self.mode not in self._SUPPORTED_MODES:
             raise ValueError("Mode '{0:s}' not supported. ".format(self.mode))
 
-    def map(self, element: Element) -> Element:
+    def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
 
         if self.mode == 'x':
