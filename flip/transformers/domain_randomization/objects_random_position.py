@@ -1,7 +1,6 @@
 import numpy as np
 
 from flip.transformers.element import Element
-from flip.transformers.constants import Position
 from flip.transformers.transformer import Transformer
 
 
