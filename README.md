@@ -1,6 +1,6 @@
 # Flip
 
-<p align="center">
+<p align="left">
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.7|%203.8-brightgreen.svg" alt="Python supported"></a>
 </p>
 
