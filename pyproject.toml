@@ -5,8 +5,8 @@ build-backend = "flit.buildapi"
 [tool.flit.metadata]
 module = "flip"
 author = "linkedai"
-author-email = "diego@linked.ai"
-classifiers = ["License :: OSI Approved :: MIT License"]
+author-email = "d@linkedai.co"
+classifiers = ["License :: OSI Approved :: GPL-3 License"]
 requires-python=">=3.7"
 requires = [
     "opencv-python>=4.3",

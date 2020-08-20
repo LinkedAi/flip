@@ -1,0 +1,4 @@
+opencv-python>=4.3
+numpy>=1.19.1
+pyyaml
+jinja2

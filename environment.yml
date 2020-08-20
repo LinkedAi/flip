@@ -1,8 +1,0 @@
-name: flip
-
-channels:
-  - conda-forge
-
-dependencies:
-  - python=3.7
-  - opencv-python=4.3
