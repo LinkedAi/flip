@@ -8,18 +8,18 @@ Synthetic Data generation with Flip! Generate thousands of new 2D images from a 
 
 ## Installation
 
+Install Flip using pip:
+
+```bash
+    pip install flip
+```
+
 ### Dependencies
 
 Flip requires:
 - Python (>= 3.7)
 - Opencv (>= 4.3.0)
-- Numpy (>= 1.18.0)
-
-Install Flip using pip, for now we are using ```setup.py``` for installation:
-
-```bash
-    pip install .
-```
+- Numpy (>= 1.19.1)
 
 ## Quick Start (Example)
 
@@ -67,7 +67,7 @@ transform = tr.Compose([
 ])
 
 ## Execute transformations
-el = tr.Element(image=background_image, objects=objects)
+el = tr.Element(image=..., objects=...)
 [el] = transform(el)
 ```
 
