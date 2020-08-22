@@ -1,24 +1,30 @@
-from setuptools import setup
+import setuptools
 
-with open("README.md", "r") as fh:
+with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 with open('requirements.txt') as req_file:
     requirements = req_file.read().splitlines()
 
-setup(name='flip',
-      version='0.1.1',
-      license='GPL-3.0',
-      author='Linked AI Inc',
-      author_email='d@linkedai.co',
-      description='Generate thousands of new 2D images from a small batch of objects and backgrounds.',
+about = {}
+with open('flip/__about__.py') as fp:
+    exec(fp.read(), about)
+
+setuptools.setup(
+      name=about['__title__'],
+      version=about['__version__'],
+      license=about['__license__'],
+      author=about['__author__'],
+      author_email=about['__email__'],
+      description=about['__description__'],
       long_description=long_description,
       long_description_content_type='text/markdown',
-      url='https://github.com/LinkedAi/flip',
-      packages=['flip'],
+      url=about['__github__'],
+      packages=setuptools.find_packages(),
       classifiers=[
             "Programming Language :: Python :: 3",
             "Operating System :: OS Independent",
       ],
       install_requires=requirements,
-      python_requires='>=3.7')
+      python_requires='>=3.7'
+)

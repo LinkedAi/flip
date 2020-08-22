@@ -2,7 +2,11 @@
 flip
 """
 
-__version__ = "0.0.1"
+about = {}
+with open("flip/__about__.py") as fp:
+    exec(fp.read(), about)
+
+__version__ = about['__version__']
 
 from . import transformers
 from . import utils

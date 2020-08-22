@@ -11,7 +11,7 @@ Synthetic Data generation with Flip! Generate thousands of new 2D images from a 
 Install Flip using pip:
 
 ```bash
-    pip install flip
+    pip install flip-data
 ```
 
 ### Dependencies
