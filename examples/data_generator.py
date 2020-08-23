@@ -160,7 +160,8 @@ def create_child(path):
     img = flip.utils.inv_channels(cv2.imread(path, cv2.IMREAD_UNCHANGED))
 
     split_name_temp = re.split(r"/|\\", path)
-    split_name = split_name_temp[2]
+    index = len(split_name_temp) - 2
+    split_name = split_name_temp[index] if index >= 0 else split_name_temp[0]
 
     obj = flip.transformers.Element(image=img, name=split_name)
 
