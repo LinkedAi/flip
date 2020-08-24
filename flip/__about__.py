@@ -1,6 +1,6 @@
 __title__ = 'flip-data'
 __package_name__ = 'flip'
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 __description__ = 'Generate thousands of new 2D images from a small batch of objects and backgrounds.'
 __email__ = 'd@linkedai.co'
 __author__ = 'Linked AI Inc'
