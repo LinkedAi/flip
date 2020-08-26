@@ -2,8 +2,7 @@ import numpy as np
 
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
-from flip.utils import rotate_bound
-
+from flip.utils import rotate_bound, crop_from_contour
 
 class Rotate(Transformer):
     """ Flip image of Element
@@ -37,5 +36,6 @@ class Rotate(Transformer):
             angle = np.random.uniform(low=self.angles[0], high=self.angles[1],)
 
         element.image = rotate_bound(element.image, angle)
+        element.image = crop_from_contour(element.image)
 
         return element

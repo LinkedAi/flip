@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def inv_channels(image):
@@ -95,3 +96,20 @@ def overlay_transparent(
     ] + mask * overlay
     return background
 
+
+def crop_from_contour(image):
+    _, _, _, a = cv2.split(image)
+    ret, thresh = cv2.threshold(a, 127, 255, 0)
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    index = 0
+    for i in range(len(contours)):
+        if len(contours[i]) > len(contours[index]):
+            index = i
+    rect = cv2.boundingRect(contours[index])
+    cropped_img = image[rect[1]:(rect[1] + rect[3]), rect[0]:(rect[0] + rect[2])]
+
+    # plt.imshow(cropped_img)
+    # plt.show()
+
+    return cropped_img
