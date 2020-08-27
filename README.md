@@ -71,7 +71,7 @@ el = tr.Element(image=..., objects=...)
 [el] = transform(el)
 ```
 
-![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.png)
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.jpg)
 
 ## Transformers 
 

@@ -82,7 +82,7 @@ To try the `data_generator.py` run:
 python3 example/data_generator.py
 ```
 
-![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.png)
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.jpg)
 
 ### show_labels.ipynb
 
