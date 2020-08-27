@@ -32,6 +32,8 @@ and unzip in a folder call `raw_data/` inside `examples/`.
 3. Check all images were created and are in the folder `examples/data/objects/` divide in 10 categories.
 4. Download [some textures](http://textures.forrest.cz/) and place them in `examples/data/background/`.
 
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/object.png)
+
 ### data_generator.py
 
 The main workflow in Flip is to create transformers and then execute them as follows: 
@@ -80,8 +82,11 @@ To try the `data_generator.py` run:
 python3 example/data_generator.py
 ```
 
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.png)
+
 ### show_labels.ipynb
 
+With this notebook you can check your labels by changing the `PATH` to the name of the folder created in results.
 
 ## Datasets
 
