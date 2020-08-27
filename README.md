@@ -11,7 +11,7 @@ Synthetic Data generation with Flip! Generate thousands of new 2D images from a 
 Install Flip using pip:
 
 ```bash
-    pip install flip-data
+pip install flip-data
 ```
 
 ### Dependencies
@@ -21,7 +21,7 @@ Flip requires:
 - Opencv (>= 4.3.0)
 - Numpy (>= 1.19.1)
 
-## Quick Start (Example)
+## Quick Start ([Example](https://github.com/linkedai/flip/blob/master/examples/README.md))
 
 To try Flip library you can run ```examples/data_generator.py```. 
 You will need to add background images and objects to compose your new training dataset, then
