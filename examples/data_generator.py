@@ -30,7 +30,7 @@ from glob import glob
 # Environment global variables
 # ==============================================================================
 # Number of output images when the data_generator.py is ejecuted
-N_SAMPLES = 10
+N_SAMPLES = 200
 
 # Data - path for background images
 BACKGROUNDS_PATTERN = "examples/data/backgrounds/*"
@@ -88,7 +88,7 @@ def setup_environment(objects_pattern, backgrounds_pattern, n_samples):
         el = create_element(objects_paths, backgrounds_paths)
         elements.append(el)
 
-    # createGoogleCSV(elements)
+    create_google_csv(elements)
 
 
 def create_element(objects_paths, backgrounds_paths):
@@ -196,7 +196,7 @@ def create_google_csv(elements):
             if y2 > 1:
                 y2 = 1
 
-            csv_data += f"{'TRAIN' if count <= train else ('VALIDATE' if count <= train + validate else 'TEST')},PATH#{element.name},{tag['name']}.jpg,{round(x1, 2)},{round(y1, 2)},,,{round(x2, 2)},{round(y2, 2)},,\n"
+            csv_data += f"{'TRAIN' if count <= train else ('VALIDATE' if count <= train + validate else 'TEST')},PATH#{element.name}.jpg,{tag['name']},{round(x1, 2)},{round(y1, 2)},,,{round(x2, 2)},{round(y2, 2)},,\n"
     # print(csv_data)
 
     with open("examples/result/google_data.csv", mode="w") as f:
