@@ -107,7 +107,7 @@ By the way, all Transformers will be executed over objects of class Element and 
 
 ## Want to Contribute or have any doubts or feedback?
 
-If you want extra info, email me at d@linkedai.co
+If you want extra info, email me at flip@linkedai.co
 
 ## Report Issues
 
