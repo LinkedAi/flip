@@ -147,7 +147,7 @@ def create_element(objects_paths, backgrounds_paths):
             flip.transformers.labeler.CreateBoundingBoxes(),
             flip.transformers.io.SaveImage(OUT_DIR, name),
             # flip.transformers.io.CreateCSV(OUT_DIR, name)
-            flip.transformers.io.CreateJson(OUT_DIR, name),
+            flip.transformers.io.CreatePascalVoc(OUT_DIR, name),
         ]
     )
 
