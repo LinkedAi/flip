@@ -1,5 +1,9 @@
 site_name: Flip
+repo_name: linkedai/flip
+repo_url: https://github.com/linkedai/flip
+site_url: https://linkedai.github.io/flip
 theme:
   name: material
+  logo: images/logo.png
   palette:
     scheme: slate
