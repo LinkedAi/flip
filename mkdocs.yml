@@ -7,3 +7,5 @@ theme:
   logo: images/logo.png
   palette:
     scheme: slate
+nav:
+  - Introduction: index.md
