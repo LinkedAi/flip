@@ -9,3 +9,19 @@ theme:
     scheme: slate
 nav:
   - Introduction: index.md
+  - Getting started: getting-started.ipynb
+extra:
+  search:
+    language: en
+  social:
+  - icon: octicons/mark-github-16
+    link: https://github.com/divait
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/in/dalejoparra/
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.arithmatex
+plugins:
+#  - mkdocstrings
+  - mkdocs-jupyter
