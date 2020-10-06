@@ -30,7 +30,7 @@ The first step to make this example work is gather the objects as segmented imag
 and unzip in a folder call `raw_data/` inside `examples/`.
 2. Run all the blocks of the `crop_image_from_mask.ipynb` notebook.
 3. Check all images were created and are in the folder `examples/data/objects/` divide in 10 categories.
-4. Download [some textures](http://textures.forrest.cz/) and place them in `examples/data/background/`.
+4. Download [some textures](http://textures.forrest.cz/) and place them in `examples/data/backgrounds/`.
 
 ![Object](https://github.com/linkedai/flip/blob/master/docs/images/object.png)
 
@@ -79,7 +79,7 @@ el = tr.Element(image=..., objects=...)
 To try the `data_generator.py` run:
 
 ```batch
-python3 example/data_generator.py
+python3 examples/data_generator.py
 ```
 
 ![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.jpg)
