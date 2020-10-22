@@ -15,7 +15,6 @@ Tested on:
 # ==============================================================================
 import flip
 import numpy as np
-import random
 import uuid
 import cv2
 import os
