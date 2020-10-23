@@ -62,9 +62,9 @@ class RandomResize(Transformer):
             p_shape = parent.image.shape
 
             w_min = p_shape[1] * self.w_percentage_min if self.w_percentage_min is not None else 0
-            h_min = p_shape[0] * self.w_percentage_min if self.h_percentage_min is not None else 0
-            w_max = p_shape[1] * self.w_percentage_min if self.w_percentage_max is not None else p_shape[1]
-            h_max = p_shape[0] * self.w_percentage_min if self.h_percentage_max is not None else p_shape[0]
+            h_min = p_shape[0] * self.h_percentage_min if self.h_percentage_min is not None else 0
+            w_max = p_shape[1] * self.w_percentage_max if self.w_percentage_max is not None else p_shape[1]
+            h_max = p_shape[0] * self.h_percentage_max if self.h_percentage_max is not None else p_shape[0]
         else:
             w_min = self.w_min if self.w_min is not None else element.image.shape[1]
             h_min = self.h_min if self.h_min is not None else element.image.shape[0]
