@@ -12,8 +12,8 @@ class ObjectsRandomPosition(Transformer):
         ----------
         mode : {'random', 'percentage'}, default='random'
         overlap : percentage 0 to 1, default=0
-                  0 for allowing a complete overlap
-                  1 for avoiding overlap
+                  1 for allowing a complete overlap
+                  0 for avoiding overlap
     """
     _SUPPORTED_MODES = {'random', 'percentage'}
 
