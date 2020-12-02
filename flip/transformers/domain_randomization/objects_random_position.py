@@ -24,7 +24,7 @@ class ObjectsRandomPosition(Transformer):
         x_max=None,
         y_min=None,
         y_max=None,
-        overlap = 0,
+        overlap=0
     ):
         self.x_min = x_min
         self.x_max = x_max
@@ -69,10 +69,10 @@ class ObjectsRandomPosition(Transformer):
             c_x = m['w'] / 2
             c_y = m['h'] / 2
 
-            y1 = int(m['y'] + factor * c_y)
-            x1 = int(m['x'] + factor * c_x)
-            y2 = int(m['y'] + m['h'] - factor * c_y)
-            x2 = int(m['x'] + m['w'] - factor * c_x)
+            y1 = int(m['y'] + (1 - factor) * c_y)
+            x1 = int(m['x'] + (1 - factor) * c_x)
+            y2 = int(m['y'] + m['h'] - (1 - factor) * c_y)
+            x2 = int(m['x'] + m['w'] - (1 - factor) * c_x)
 
             y_a = max(0, y1 - obj_h)
             x_a = max(0, x1 - obj_w)
