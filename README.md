@@ -97,10 +97,12 @@ By the way, all Transformers will be executed over objects of class Element and 
 ### Labeler
 
 - CreateBoundingBoxes: Draw bounding boxes around the objects contained by a background Element.
+- CreateMasks: Creates the segmentation mask for the objects contained in a background element.
 
 ### IO
 
 - SaveImage: Save a .jpg File with the new generated image.
+- SaveMask: Save a .jpg File with the new generated mask.
 - Json: Save generated Labels as a Json.
 - Csv: Save generated Labels as a CSV.
 
