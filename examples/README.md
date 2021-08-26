@@ -67,6 +67,9 @@ transform = tr.Compose([
     tr.data_augmentation.Flip('x'),
     tr.domain_randomization.Draw(),
     tr.labeler.CreateBoundingBoxes(),
+    tr.labeler.CreateMasks(),
+    tr..io.SaveImage(OUT_DIR, name),
+    tr.io.SaveMask(OUT_DIR, name),
     tr.io.CreateJson(out_dir=OUT_DIR, name='img_generate.jpg'),
     tr.io.CreateJson(out_dir=OUT_DIR, name='json_generated.jpg')
 ])
@@ -82,7 +85,11 @@ To try the `data_generator.py` run:
 python3 examples/data_generator.py
 ```
 
-![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.jpg)
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated.png)
+
+And their respective mask:
+
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/mask.png)
 
 ### show_labels.ipynb
 

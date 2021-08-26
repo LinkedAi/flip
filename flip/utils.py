@@ -57,9 +57,10 @@ def overlay_transparent(
 
     mask = cv2.GaussianBlur(mask, (7, 7), 0)
 
-    x = x or 0
-    y = y or 0
-
+    x = x #or 0
+    y = y #or 0
+    if x==None or y==None:
+        return background
     if x >= background_width or y >= background_height:
         return background
 
