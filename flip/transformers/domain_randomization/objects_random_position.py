@@ -1,5 +1,6 @@
 import numpy as np
 import warnings
+warnings.simplefilter('always', UserWarning)
 
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
@@ -89,8 +90,8 @@ class ObjectsRandomPosition(Transformer):
 
                 y_a = max(0, y1 - obj_h)
                 x_a = max(0, x1 - obj_w)
-                y_b = min(el_h-5, y2)
-                x_b = min(el_w-5, x2)
+                y_b = min(el_h, y2)
+                x_b = min(el_w, x2)
                 grid[y_a:y_b, x_a:x_b] = 0
         return grid
 
