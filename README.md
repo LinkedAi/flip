@@ -88,6 +88,7 @@ By the way, all Transformers will be executed over objects of class Element and 
 - Flip: Flip the Element in x or y axis.
 - RandomResize: Change the size of an Element randomly.
 - Rotate: Rotate Element randomly.
+- Color: Change color space or the element color.
 
 ### Random Domain
 
