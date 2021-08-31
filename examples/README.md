@@ -50,6 +50,7 @@ OUT_DIR = "examples/result"
 transform_objects = [
         tr.data_augmentation.Rotate(mode='random'),
         tr.data_augmentation.Flip(mode='y'),
+        tr.data_augmentation.Color(color='red'),
         tr.data_augmentation.RandomResize(
             mode='symmetric_w',
             relation='parent',
@@ -62,13 +63,13 @@ transform_objects = [
 transform = tr.Compose([
     tr.ApplyToObjects(transform_objects),
     tr.domain_randomization.ObjectsRandomPosition(
-        x_min=0, y_min=0.4, x_max=0.7, y_max=0.7, mode='percentage'
+        x_min=0, y_min=0.4, x_max=0.7, y_max=0.7, mode='percentage', force_overlap=False
     ),
     tr.data_augmentation.Flip('x'),
     tr.domain_randomization.Draw(),
     tr.labeler.CreateBoundingBoxes(),
-    tr.labeler.CreateMasks(),
-    tr..io.SaveImage(OUT_DIR, name),
+    tr.labeler.CreateMasks(classes_names),
+    tr.io.SaveImage(OUT_DIR, name),
     tr.io.SaveMask(OUT_DIR, name),
     tr.io.CreateJson(out_dir=OUT_DIR, name='img_generate.jpg'),
     tr.io.CreateJson(out_dir=OUT_DIR, name='json_generated.jpg')
@@ -89,11 +90,13 @@ python3 examples/data_generator.py
 
 And their respective mask:
 
-![Object](https://github.com/linkedai/flip/blob/master/docs/images/mask.png)
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generatedM.png)
 
 ### show_labels.ipynb
 
 With this notebook you can check your labels by changing the `PATH` to the name of the folder created in results.
+
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generatedBB.png)
 
 ## Datasets
 
