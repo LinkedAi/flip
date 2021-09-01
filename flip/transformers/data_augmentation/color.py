@@ -9,6 +9,9 @@ class Color(Transformer):
     def __init__(self, color='gray'):
         self.color = color
         
+        if self.color =='random':
+            self.color = np.random.choice(list(self._SUPPORTED_MODES))
+        
         if self.color not in self._SUPPORTED_MODES:
             raise ValueError("Color '{0:s}' not supported. ".format(self.mode))
     
