@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import cv2
 
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
@@ -22,8 +22,8 @@ class CreateMasks(Transformer):
         
         for i, obj in enumerate(element.objects):
             # Find mask object position
-            x = element.tags[i]['pos']['x']
-            y = element.tags[i]['pos']['y']
+            x = obj.x
+            y = obj.y
             w = obj.image.shape[1]
             h = obj.image.shape[0]
             if x>=element.created_image.shape[1] or y>=element.created_image.shape[0]:
@@ -36,16 +36,17 @@ class CreateMasks(Transformer):
                 obj.image = obj.image[:,:w,:]
             
             # Create the first mask
+            obje = cv2.cvtColor(obj.image, cv2.COLOR_BGR2GRAY)
             if i == 0:
-                masks[y:y+h,x:x+w]+=np.logical_or(masks[y:y+h,x:x+w],obj.image[:,:,0])*(classes.index(element.tags[i]['name'])+1)/len(classes)
+                masks[y:y+h,x:x+w]+=np.logical_or(masks[y:y+h,x:x+w],obje)*(classes.index(obj.name)+1)
                 continue
             # Delete the intersection between objects
             
-            inter = np.logical_and(masks[y:y+h,x:x+w],obj.image[:,:,0])
+            inter = np.logical_and(masks[y:y+h,x:x+w],obje)
             for a,e in enumerate(inter):
                 for b,j in enumerate(e):
                     if j ==True:
                         masks[y+a,x+b] = 0
             # Place the final object mask
-            masks[y:y+h,x:x+w]+=np.logical_or(masks[y:y+h,x:x+w]*0,obj.image[:,:,0])*(classes.index(element.tags[i]['name'])+1)/len(classes)
+            masks[y:y+h,x:x+w]+=np.logical_or(masks[y:y+h,x:x+w]*0,obje)*(classes.index(obj.name)+1)
         return masks

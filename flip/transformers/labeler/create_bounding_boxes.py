@@ -36,7 +36,7 @@ class CreateBoundingBoxes(Transformer):
         """
 
         # Canny edge detection - edge gradient
-        img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        img_gray = image[:,:,3]
         gray_filtered = cv2.bilateralFilter(img_gray, 7, 50, 50)
         edged = cv2.Canny(gray_filtered, 60, 120)
         edges_filtered = cv2.Canny(edged, 60, 120)
