@@ -1,5 +1,6 @@
 import os
-import json
+import warnings
+warnings.simplefilter('always', UserWarning)
 
 from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
@@ -31,30 +32,33 @@ class CreatePascalVoc(Transformer):
         f.write("		<database>Unknown</database>\n")
         f.write("	</source>\n")
         f.write("	<size>\n")
-        f.write("		<width>{}</width>\n".format(element.created_image.shape[1]))
-        f.write("		<height>{}</height>\n".format(element.created_image.shape[0]))
-        f.write("		<depth>{}</depth>\n".format(element.created_image.shape[2]))
+        f.write("		<width>{}</width>\n".format(element.created_image.image.shape[1]))
+        f.write("		<height>{}</height>\n".format(element.created_image.image.shape[0]))
+        f.write("		<depth>{}</depth>\n".format(element.created_image.image.shape[2]))
         f.write("	</size>\n")
         f.write("	<segmented>0</segmented>\n")
-
-        for tag in element.tags:
-            x_min = int(tag['pos']['x'])
-            y_min = int(tag['pos']['y'])
-            x_max = x_min + int(tag['pos']['w'])
-            y_max = y_min + int(tag['pos']['h'])
-
-            f.write("	<object>\n")
-            f.write("		<name>{}</name>\n".format(tag['name']))
-            f.write("		<pose>Unspecified</pose>\n")
-            f.write("		<truncated>0</truncated>\n")
-            f.write("		<difficult>0</difficult>\n")
-            f.write("		<bndbox>\n")
-            f.write("			<xmin>{}</xmin>\n".format(x_min))
-            f.write("			<ymin>{}</ymin>\n".format(y_min))
-            f.write("			<xmax>{}</xmax>\n".format(x_max))
-            f.write("			<ymax>{}</ymax>\n".format(y_max))
-            f.write("		</bndbox>\n")
-            f.write("	</object>\n")
+        
+        if type(element.tags) != type(None):
+            for tag in element.tags:
+                x_min = int(tag['pos']['x'])
+                y_min = int(tag['pos']['y'])
+                x_max = x_min + int(tag['pos']['w'])
+                y_max = y_min + int(tag['pos']['h'])
+    
+                f.write("	<object>\n")
+                f.write("		<name>{}</name>\n".format(tag['name']))
+                f.write("		<pose>Unspecified</pose>\n")
+                f.write("		<truncated>0</truncated>\n")
+                f.write("		<difficult>0</difficult>\n")
+                f.write("		<bndbox>\n")
+                f.write("			<xmin>{}</xmin>\n".format(x_min))
+                f.write("			<ymin>{}</ymin>\n".format(y_min))
+                f.write("			<xmax>{}</xmax>\n".format(x_max))
+                f.write("			<ymax>{}</ymax>\n".format(y_max))
+                f.write("		</bndbox>\n")
+                f.write("	</object>\n")
+        else:
+            warnings.warn('There are no bounding boxes')
         f.write("</annotation>\n")
         f.close()
 
