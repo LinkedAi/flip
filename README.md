@@ -80,6 +80,8 @@ The main transformers are:
 - Transformer
 - Compose
 - ApplyToObjects
+- ApplyToBackground
+- ApplyToCreatedImage
 
 By the way, all Transformers will be executed over objects of class Element and will return a new _transformed_ Element.
 
@@ -89,6 +91,9 @@ By the way, all Transformers will be executed over objects of class Element and 
 - RandomResize: Change the size of an Element randomly.
 - Rotate: Rotate Element randomly.
 - Color: Change color space or the element color.
+- Noise: Add noise to the element image.
+- CutOut: Remove a section of the element in the desired area.
+- RandomCrop: Cut the image randomly.
 
 ### Random Domain
 
