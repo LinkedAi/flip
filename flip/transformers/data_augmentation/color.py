@@ -5,7 +5,8 @@ from flip.transformers.element import Element
 from flip.transformers.transformer import Transformer
 
 class Color(Transformer):
-    _SUPPORTED_MODES = {'hsv', 'lab', 'xyz', 'luv', 'gray', 'red', 'green', 'blue'}
+    _SUPPORTED_MODES = {'hsv', 'lab', 'xyz', 'luv', 'gray', 'red', 'green', 'blue',
+                        'purple', 'yellow', 'cyan'}
     def __init__(self, color='gray'):
         self.color = color
         
@@ -13,7 +14,7 @@ class Color(Transformer):
             self.color = np.random.choice(list(self._SUPPORTED_MODES))
         
         if self.color not in self._SUPPORTED_MODES:
-            raise ValueError("Color '{0:s}' not supported. ".format(self.mode))
+            raise ValueError("Color '{0:s}' not supported. ".format(self.color))
     
     def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
@@ -66,7 +67,25 @@ class Color(Transformer):
             img[:,:,0:2] = 0
             element.image = img
             return element
-
+        
+        if self.color == 'purple':
+            img = element.image.copy()
+            img[:,:,1] = 0
+            element.image = img
+            return element
+        
+        if self.color == 'yellow':
+            img = element.image.copy()
+            img[:,:,2] = 0
+            element.image = img
+            return element
+        
+        if self.color == 'cyan':
+            img = element.image.copy()
+            img[:,:,0] = 0
+            element.image = img
+            return element
+        
 class Brightness(Transformer):
     def __init__(self, value=0):
         self.value = value
