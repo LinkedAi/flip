@@ -96,7 +96,7 @@ And their respective mask:
 
 With this notebook you can check your labels by changing the `PATH` to the name of the folder created in results.
 
-![Object](https://github.com/linkedai/flip/blob/master/docs/images/generatedBB.png)
+![Object](https://github.com/linkedai/flip/blob/master/docs/images/generated_BB.png)
 
 ## Datasets
 
