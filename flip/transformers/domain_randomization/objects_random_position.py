@@ -95,7 +95,7 @@ class ObjectsRandomPosition(Transformer):
                 grid[y_a:y_b, x_a:x_b] = 0
         return grid
 
-    def map(self, element: Element) -> Element:
+    def map(self, element: Element, parent=None) -> Element:
         """ locate objects """
         assert element, "Element cannot be None"
 
