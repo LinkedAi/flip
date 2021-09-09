@@ -34,8 +34,8 @@ class Rotate(Transformer):
             angle = np.random.choice(self.angles)
         else:
             angle = np.random.uniform(low=self.angles[0], high=self.angles[1],)
-
+        
         element.image = rotate_bound(element.image, angle)
         element.image = crop_from_contour(element.image)
-
+        
         return element
