@@ -11,7 +11,7 @@ class CutOut(Transformer):
     
     def __init__(self, figure = 'rectangle', color='black', mode='random',
                  x_min=None, x_max=None, y_min=None, y_max=None,
-                 crop_shape=(None,None), num=1, force=False):
+                 crop_shape=(None,None), num=1, force=True):
         
         self.figure = figure
         self.color = color
