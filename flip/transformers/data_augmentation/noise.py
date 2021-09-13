@@ -6,7 +6,7 @@ from flip.transformers.transformer import Transformer
 
 class Noise(Transformer):
     _SUPPORTED_MODES = {'gaussian_blur', 'avg_blur', 'median_blur', 'salt_pepper'}
-    def __init__(self, noise = 'gray', value = 0.5, force = False):
+    def __init__(self, noise = 'gray', value = 0.5, force = True):
         self.noise = noise
         self.value = value
         self.force = force
