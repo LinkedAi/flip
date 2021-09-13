@@ -91,6 +91,9 @@ By the way, all Transformers will be executed over objects of class Element and 
 - RandomResize: Change the size of an Element randomly.
 - Rotate: Rotate Element randomly.
 - Color: Change color space or the element color.
+- Brightness: Changes the brightness in the image.
+- Contrast: Changes the contrast in the image.
+- Saturation: Changes the saturation in the image.
 - Noise: Add noise to the element image.
 - CutOut: Remove a section of the element in the desired area.
 - RandomCrop: Cut the image randomly.
