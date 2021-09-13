@@ -37,6 +37,7 @@ class RandomResize(Transformer):
         w_percentage_max=None,
         h_percentage_min=None,
         h_percentage_max=None,
+        force=True
     ):
         self.w_min = w_min
         self.w_max = w_max
@@ -48,6 +49,7 @@ class RandomResize(Transformer):
         self.w_percentage_max = w_percentage_max
         self.h_percentage_min = h_percentage_min
         self.h_percentage_max = h_percentage_max
+        self.force = force
 
         if self.mode not in self._SUPPORTED_MODES:
             raise ValueError("Mode '{0:s}' not supported. ".format(self.mode))
@@ -101,6 +103,10 @@ class RandomResize(Transformer):
         h = int(h)
         w = int(w)
 
-        element.image = cv2.resize(element.image, (w, h))
+        if self.force == False:
+            if np.random.randint(low=0, high=2) == 0:
+                element.image = cv2.resize(element.image, (w, h))
+        else:
+            element.image = cv2.resize(element.image, (w, h))
 
         return element
