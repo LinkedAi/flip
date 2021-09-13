@@ -11,7 +11,7 @@ class CutOut(Transformer):
     
     def __init__(self, figure = 'rectangle', color='black', mode='random',
                  x_min=None, x_max=None, y_min=None, y_max=None,
-                 crop_shape=(None,None), num=1):
+                 crop_shape=(None,None), num=1, force=False):
         
         self.figure = figure
         self.color = color
@@ -22,6 +22,7 @@ class CutOut(Transformer):
         self.y_max = y_max
         self.w, self.h = crop_shape
         self.num = num
+        self.force = force
         
         if self.mode not in self._SUPPORTED_MODES:
             raise ValueError("Noise '{0:s}' not supported. ".format(self.mode))
@@ -89,8 +90,11 @@ class CutOut(Transformer):
         for n in range(self.num):
             x = np.random.randint(x_min, x_max)
             y = np.random.randint(y_min, y_max)
-        
-            if self.figure == 'rectangle':            
+            if self.force == False:
+                if np.random.randint(low=0, high=2) == 0:
+                    self.force = True
+                    
+            if self.figure == 'rectangle' and self.force==True:            
                 img = element.image.copy()
                 #element.image[:,:,:3] = cv2.rectangle(img, (x,y), (x+self.w,y+self.h), RGB, -1)[:,:,:3]
                 element.image = cv2.rectangle(img, (x,y), (x+self.w,y+self.h), RGB, -1)
@@ -98,19 +102,19 @@ class CutOut(Transformer):
                     mask = cv2.rectangle(mask, (x,y), (x+self.w,y+self.h), RGB, -1)
                     
             
-            if self.figure == 'circle':            
+            if self.figure == 'circle' and self.force==True:            
                 element.image = cv2.circle(element.image, (x,y), min(self.w,self.h), RGB, -1)
                 if element.name == 'created_final':
                     mask = cv2.circle(mask, (x,y), min(self.w,self.h), RGB, -1)
                     
                 
-            if self.figure == 'square':            
+            if self.figure == 'square' and self.force==True:            
                 element.image = cv2.rectangle(element.image, (x,y), (x+min(self.w,self.h),y+min(self.w,self.h)), RGB, -1)
                 if element.name == 'created_final':
                     mask = cv2.rectangle(mask, (x,y), (x+min(self.w,self.h),y+min(self.w,self.h)), RGB, -1)
                     
                 
-            if self.figure == 'triangle':
+            if self.figure == 'triangle' and self.force==True:
                 vertices = np.array([[x, y], 
                                      [x+self.w, y], 
                                      [int((x+self.w)/2), y+self.h]], np.int32)
