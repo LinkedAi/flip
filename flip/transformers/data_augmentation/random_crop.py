@@ -8,7 +8,7 @@ class RandomCrop(Transformer):
     x_min : Minimum cut percentage in x axis
     y_min : Minimum cut percentage in y axis
     '''
-    def __init__(self, x_min=None, y_min=None, force=False):
+    def __init__(self, x_min=None, y_min=None, force=True):
         
         self.x_min = x_min
         self.y_min = y_min
