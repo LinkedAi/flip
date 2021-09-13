@@ -7,7 +7,7 @@ from flip.transformers.transformer import Transformer
 class Color(Transformer):
     _SUPPORTED_MODES = {'hsv', 'lab', 'xyz', 'luv', 'gray', 'red', 'green', 'blue',
                         'purple', 'yellow', 'cyan'}
-    def __init__(self, color='gray', force=False):
+    def __init__(self, color='gray', force=True):
         self.color = color
         self.force = force
         
