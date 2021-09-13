@@ -107,7 +107,7 @@ class Brightness(Transformer):
         return element
 
 class Contrast(Transformer):
-    def __init__(self, value=0, force=False):
+    def __init__(self, value=0, force=True):
         self.value = value
         self.force = force
             
@@ -129,7 +129,7 @@ class Contrast(Transformer):
         return element
     
 class Saturation(Transformer):
-    def __init__(self, value=0, force=False):
+    def __init__(self, value=0, force=True):
         self.value = value
         self.force = force
             
