@@ -83,7 +83,7 @@ class Color(Transformer):
         return element
         
 class Brightness(Transformer):
-    def __init__(self, value=0, force=False):
+    def __init__(self, value=0, force=True):
         self.value = value
         self.force = force
             
@@ -119,12 +119,7 @@ class Contrast(Transformer):
                 
         if self.force==True:
             img = element.image.copy()
-            lab= cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
-            l, a, b = cv2.split(lab)
-            clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8,8))
-            cl = clahe.apply(l)
-            limg = cv2.merge((cl,a,b))
-            img[:,:,:3] = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
+            img[:,:,:3] = cv2.addWeighted(img, self.value, np.zeros(img.shape, img.dtype), 0, 0)
             element.image = img
         return element
     
