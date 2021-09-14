@@ -37,7 +37,7 @@ class Noise(Transformer):
     
         if self.noise == 'median_blur' and self.force == True:
             img = element.image.copy()
-            img[:,:,:3] = cv2.medianBlur(element.image, self.value)[:,:,:3]
+            img[:,:,:3] = cv2.medianBlur(element.image, ksize=self.value)[:,:,:3]
             element.image = img
     
         if self.noise == 'salt_pepper' and self.force == True:
