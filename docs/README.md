@@ -198,22 +198,22 @@ Commonly extra arguments:
 
 Allows to carry out the different changes and transformations in sequence to the elements.
 
-Inside it, the transformations list are placed in the order that you want to be carried out, as shown in the example.
+Inside it, the transformations list are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
 
 ### ApplyToBackground(Transformer):
 
 It allows to carry out the different changes and transformations in sequence only to the background element.
 
-Inside it, the transformations are placed in the order that you want to be carried out, as shown in the example.
+Inside it, the transformations are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
 
 ### ApplyToCreatedImage(Transformer):
 
 It allows to carry out the different changes and transformations in sequence only to the created image element.
 
-Inside it, the transformations are placed in the order that you want to be carried out, as shown in the example.
+Inside it, the transformations are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
 
 ### ApplyToObjects(Transformer):
 
 It allows to carry out the different changes and transformations in sequence only to the objects elements.
 
-Inside it, the transformations are placed in the order that you want to be carried out, as shown in the example.
+Inside it, the transformations are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
