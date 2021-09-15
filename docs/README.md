@@ -2,8 +2,7 @@
 
 ## Data Augmentation
 
-### Brightness(value = float,
-###                     force = boolean): 
+### Brightness(value = float, force = boolean): 
 
 Change the brightness of the element.
 
@@ -11,8 +10,7 @@ Parameters:
 - Value: Change factor. -> {Float>0 where a number less than 1 decreases the brightness in percentage while a higher number increases it in percentage (1 default).}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### Color(color = str,
-###            force = boolean): 
+### Color(color = str, force = boolean): 
 
 Change color space or the element color.
 
@@ -20,8 +18,7 @@ Parameters:
 - Color: Color space code. -> {'hsv', 'lab', 'xyz', 'luv', 'gray' (default), 'red', 'green', 'blue', 'purple', 'yellow', 'cyan'}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### Contrast(value = float,
-###                  force = boolean): 
+### Contrast(value = float, force = boolean): 
 
 Change the contrast of the element.
 
@@ -29,8 +26,7 @@ Parameters:
 - Value: Change factor. -> {Float>0 where a number less than 1 decreases the contrast in percentage while a higher number increases it in percentage (1 default).}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### Saturation(value = float,
-###                     force = boolean): 
+### Saturation(value = float, force = boolean): 
 
 Change the saturation of the element.
 
@@ -38,16 +34,7 @@ Parameters:
 - Value: Change factor. -> {Float>0 where a number less than 1 decreases the saturation in percentage while a higher number increases it in percentage (1 default).}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### CutOut(figure = str,
-###               color = str,
-###               mode = str,
-###               x_min = float,
-###               x_max = float,
-###               y_min = float,
-###               y_max = float,
-###               crop_shape = (int, int),
-###               num = int,
-###               force = boolean): 
+### CutOut(figure = str, color = str, mode = str, x_min = float, x_max = float, y_min = float, y_max = float, crop_shape = (int, int), num = int, force = boolean): 
 
 Remove a section of the element in the desired area.
 
@@ -63,8 +50,7 @@ Parameters:
 - Num (optional): Number of cuts. -> {Int > 0 (1 default)}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### Flip(mode = str,
-###         force = boolean): 
+### Flip(mode = str, force = boolean): 
 
 Flip the element in x or y axis.
 
@@ -72,9 +58,7 @@ Parameters:
 - Mode: If it is 'random' flip the element on any of the axes. Otherwise, it rotates it about the selected axis. -> {'random', 'x', 'y'}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### Noise(mode = str,
-###            value = float,
-###            force = boolean): 
+### Noise(mode = str, value = float, force = boolean): 
 
 Add noise to the element image.
 
@@ -83,9 +67,7 @@ Parameters:
 - Value: Percentage in which you want to modify the element, except in the avg_blur that does not need it. -> {Float between 0 and 1 (0.5 default)}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### RandomCrop(x_min = float,
-###                         y_min = float,
-###                         force = boolean): 
+### RandomCrop(x_min = float, y_min = float, force = boolean): 
 
 Cut the image randomly.
 
@@ -94,17 +76,7 @@ Parameters:
 - Y_min (optional): The minimum percentage of the image to cut on the y-axis. If no value is presented, a random one is assigned. -> {Float between 0 and 1}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### RandomResize(mode = str,
-###                            w_min = float,
-###                            w_max = float,
-###                            h_min = float,
-###                            h_max = float,
-###                            relation = str,
-###                            w_percentage_min = float,
-###                            w_percentage_max = float,
-###                            h_percentage_min = float,
-###                            h_percentage_max = float,
-###                            force = boolean): 
+### RandomResize(mode = str, w_min = float, w_max = float, h_min = float, h_max = float, relation = str, w_percentage_min = float, w_percentage_max = float, h_percentage_min = float, h_percentage_max = float, force = boolean): 
 
 Change the size of an Element randomly.
 
@@ -121,10 +93,7 @@ Parameters:
 - H_percentage_max (optional): The maximun percentage of the image to make the change with respect to the y-axis. -> {Float between 0 and 1}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-### Rotate(mode = str,
-###              min = float,
-###              max = float,
-###              force = boolean): 
+### Rotate(mode = str, min = float, max = float, force = boolean): 
 
 Rotate Element randomly.
 
@@ -142,12 +111,7 @@ Draw objects over background Element to merge them into a new image.
 
 It has no parameters.
 
-### ObjectsRandomPosition(mode = str,
-###                                            x_min = float,
-###                                            x_max = float,
-###                                            y_min = float,
-###                                            y_max = float,
-###                                            force_overlap = boolean):
+### ObjectsRandomPosition(mode = str, x_min = float, x_max = float, y_min = float, y_max = float, force_overlap = boolean):
 
 Set Random positions to objects over background Element.
 
@@ -161,8 +125,7 @@ Parameters:
 
 ## IO
 
-### CreateCSV(out_dir = str
-###                     name = str):
+### CreateCSV(out_dir = str name = str):
 
 Save generated Labels as a CSV.
 
@@ -170,8 +133,7 @@ Parameters:
 - Out_dir: Path where you want to save the file.
 - Name: Name with which you want to save the file.
 
-### CreateJson(out_dir = str
-###                      name = str):
+### CreateJson(out_dir = str name = str):
 
 Save generated Labels as a Json.
 
@@ -179,8 +141,7 @@ Parameters:
 - Out_dir: Path where you want to save the file.
 - Name: Name with which you want to save the file.
 
-### CreatePascalVoc(out_dir = str
-###                               name = str):
+### CreatePascalVoc(out_dir = str name = str):
 
 Save generated Labels as a XML.
 
@@ -188,8 +149,7 @@ Parameters:
 - Out_dir: Path where you want to save the file.
 - Name: Name with which you want to save the file.
 
-### SaveImage(out_dir = str
-###                      name = str):
+### SaveImage(out_dir = str name = str):
 
 Save a .jpg File with the new generated image.
 
@@ -197,8 +157,7 @@ Parameters:
 - Out_dir: Path where you want to save the image.
 - Name: Name with which you want to save the image.
 
-### SaveMask(out_dir = str
-###                    name = str):
+### SaveMask(out_dir = str name = str):
 
 Save a .jpg File with the new generated mask.
 
