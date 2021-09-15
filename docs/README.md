@@ -1,6 +1,6 @@
 # Flip Documentation
 
-## Data Augmentation
+## [Data Augmentation](https://github.com/LinkedAi/flip/tree/master/flip/transformers/data_augmentation)
 
 ### Brightness(value = float, force = boolean): 
 
@@ -103,7 +103,7 @@ Arguments:
 - Max: The maximum angle to rotate the element. -> {Int between 0 and 360 (360 default)}
 - Force (optional): Force change in all elements. -> {True (default), False}
 
-## Domain Randomization
+## [Domain Randomization](https://github.com/LinkedAi/flip/tree/master/flip/transformers/domain_randomization)
 
 ### Draw( ):
 
@@ -123,7 +123,7 @@ Arguments:
 - Y_max (optional): Percentage or minimum value on the y-axis to position the object. -> {Float between 0 and 1 or Float > 0. (100% default)}
 - Force_overlap (optional): If true, it allows overlapping between elements in the image, otherwise, it does not allow elements to touch each other. -> {True (default), False}
 
-## IO
+## [IO](https://github.com/LinkedAi/flip/tree/master/flip/transformers/io)
 
 ### CreateCSV(out_dir = str name = str):
 
@@ -165,7 +165,7 @@ Arguments:
 - Out_dir: Path where you want to save the mask.
 - Name: Name with which you want to save the mask.
 
-## Labeler
+## [Labeler](https://github.com/LinkedAi/flip/tree/master/flip/transformers/labeler)
 
 ### CreateBoundingBoxes( ):
 
@@ -179,7 +179,7 @@ Creates the segmentation mask for the objects contained in a background element.
 
 It has no arguments.
 
-## Element( ):
+## [Element( )](https://github.com/LinkedAi/flip/blob/master/flip/transformers):
 
 The Element class represents the base class than can be use by a Transform.
 
@@ -192,7 +192,7 @@ Commonly extra arguments:
 - x, y: To set the position of the element over a parent element.
 - tags: To save the information of the generated tags for the child objects.
 
-## Transformer:
+## [Transformer](https://github.com/LinkedAi/flip/blob/master/flip/transformers):
 
 ### Compose(Transformer):
 
