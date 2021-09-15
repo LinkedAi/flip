@@ -179,26 +179,7 @@ Creates the segmentation mask for the objects contained in a background element.
 
 It has no arguments.
 
-## [Element( )](https://github.com/LinkedAi/flip/blob/master/flip/transformers):
-
-The Element class represents the base class than can be use by a Transform.
-
-Commonly used arguments are:
-- image: Numpy Array with the image of the element.
-- name: A name for the element can be use for label it.
-- objects: Child Elements of this element, mostly used when the parent Element is a background.
-
-Commonly extra arguments:
-- x, y: To set the position of the element over a parent element.
-- tags: To save the information of the generated tags for the child objects.
-
 ## [Transformer](https://github.com/LinkedAi/flip/blob/master/flip/transformers):
-
-### Compose(Transformer):
-
-Allows to carry out the different changes and transformations in sequence to the elements.
-
-Inside it, the transformations list are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
 
 ### ApplyToBackground(Transformer):
 
@@ -217,3 +198,22 @@ Inside it, the transformations are placed in the order that you want to be carri
 It allows to carry out the different changes and transformations in sequence only to the objects elements.
 
 Inside it, the transformations are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
+
+### Compose(Transformer):
+
+Allows to carry out the different changes and transformations in sequence to the elements.
+
+Inside it, the transformations list are placed in the order that you want to be carried out, as shown in the [example](https://github.com/linkedai/flip/blob/master/examples/README.md).
+
+### Element( ):
+
+The Element class represents the base class than can be use by a Transform.
+
+Commonly used arguments are:
+- image: Numpy Array with the image of the element.
+- name: A name for the element can be use for label it.
+- objects: Child Elements of this element, mostly used when the parent Element is a background.
+
+Commonly extra arguments:
+- x, y: To set the position of the element over a parent element.
+- tags: To save the information of the generated tags for the child objects.
