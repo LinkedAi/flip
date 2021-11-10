@@ -14,7 +14,6 @@ class CreateJson(Transformer):
 
     def map(self, element: Element) -> Element:
         assert element, "element cannot be None"
-        
         json_path = os.path.join(self.out_dir, f"{self.name}.json")
         if type(element.tags) != type(None):
             json_data=json.dumps(element.tags)

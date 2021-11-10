@@ -29,12 +29,10 @@ class Rotate(Transformer):
 
     def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
-
         if self.mode == 'upside_down' or self.mode == 'ninety':
             angle = np.random.choice(self.angles)
         else:
-            angle = np.random.uniform(low=self.angles[0], high=self.angles[1],)
-        
+            angle = np.random.uniform(low=self.angles[0], high=self.angles[1],)   
         element.image = rotate_bound(element.image, angle)
         element.image = crop_from_contour(element.image)
         
