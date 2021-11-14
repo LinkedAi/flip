@@ -66,6 +66,4 @@ class CreateBoundingBoxes(Transformer):
             if y+h > y2:
                 y2 = y+h
 
-        # new_img = image[y1: y2, x1: x2]
-
         return x1, y1, x2, y2
