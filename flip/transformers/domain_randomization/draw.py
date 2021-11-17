@@ -26,6 +26,6 @@ class Draw(Transformer):
 
         print("Image created")
 
-        element.created_image = image
+        element.created_image = Element(image=image, name='created_final')
 
         return element
