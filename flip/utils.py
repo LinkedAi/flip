@@ -28,17 +28,11 @@ def rotate_bound(image, angle):
     M[0, 2] += (nW / 2) - cX
     M[1, 2] += (nH / 2) - cY
 
-    # distance matrix
-    # dst_mat = np.zeros((h, w, 4), np.uint8)
-
     # perform the actual rotation and return the image
     return cv2.warpAffine(
         image,
         M,
-        (nW, nH),
-        # dst_mat,
-        # flags=cv2.INTER_LINEAR,
-        # borderMode=cv2.BORDER_TRANSPARENT,
+        (nW, nH)
     )
 
 
@@ -57,8 +51,8 @@ def overlay_transparent(
 
     mask = cv2.GaussianBlur(mask, (7, 7), 0)
 
-    x = x #or 0
-    y = y #or 0
+    x = x
+    y = y
     if x==None or y==None:
         return background
     if x >= background_width or y >= background_height:
@@ -98,6 +92,8 @@ def overlay_transparent(
 
 
 def crop_from_contour(image):
+    if image.shape[2] != 4:
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGRA)
     _, _, _, a = cv2.split(image)
     ret, thresh = cv2.threshold(a, 127, 255, 0)
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -108,8 +104,5 @@ def crop_from_contour(image):
             index = i
     rect = cv2.boundingRect(contours[index])
     cropped_img = image[rect[1]:(rect[1] + rect[3]), rect[0]:(rect[0] + rect[2])]
-
-    # plt.imshow(cropped_img)
-    # plt.show()
 
     return cropped_img
