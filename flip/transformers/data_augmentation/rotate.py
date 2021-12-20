@@ -30,7 +30,7 @@ class Rotate(Transformer):
 
     def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
-        if self.mode == 'upside_down' or self.mode == 'ninety':
+        if self.mode == 'upside_down' or self.mode == '90':
             angle = np.random.choice(self.angles)
         else:
             angle = np.random.uniform(low=self.angles[0], high=self.angles[1],)

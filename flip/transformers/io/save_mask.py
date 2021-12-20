@@ -20,12 +20,12 @@ class SaveMask(Transformer):
 
         element.name = self.name
         image_path = os.path.join(
-            self.out_dir, f"{self.name}_mask.jpg"
+            self.out_dir, f"{self.name}_mask.png"
         )  # "{self.name}.{extension}"
         
         
         
-        image = cv2.cvtColor(element.masks.astype(np.float32), cv2.COLOR_GRAY2RGB)
+        image = element.masks.astype(np.float32)
         cv2.imwrite(image_path, image)
 
         return element
