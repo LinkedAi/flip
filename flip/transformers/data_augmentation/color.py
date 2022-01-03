@@ -7,7 +7,7 @@ from flip.transformers.transformer import Transformer
 class Color(Transformer):
     _SUPPORTED_MODES = {'hsv', 'lab', 'xyz', 'luv', 'gray', 'red', 'green', 'blue',
                         'purple', 'yellow', 'cyan'}
-    def __init__(self, color='gray', force=True):
+    def __init__(self, color='random', force=True):
         self.color = color
         self.force = force
         
@@ -20,70 +20,51 @@ class Color(Transformer):
     def map(self, element: Element, parent=None) -> Element:
         assert element, "Element cannot be None"
         
+        img = element.image.copy()
         if self.force == False:
             if np.random.randint(low=0, high=2) == 0:
                 self.force = True
         
         if self.color == 'hsv' and self.force == True:
-            img = element.image.copy()
             img[:,:,:3] = cv2.cvtColor(element.image, cv2.COLOR_BGR2HSV)
-            element.image = img
     
         if self.color == 'lab' and self.force == True:
-            img = element.image.copy()
             img[:,:,:3] = cv2.cvtColor(element.image, cv2.COLOR_BGR2LAB)
-            element.image = img
-    
+            
         if self.color == 'xyz' and self.force == True:
-            img = element.image.copy()
             img[:,:,:3] = cv2.cvtColor(element.image, cv2.COLOR_BGR2XYZ)
-            element.image = img
-    
+            
         if self.color == 'luv' and self.force == True:
-            img = element.image.copy()
             img[:,:,:3] = cv2.cvtColor(element.image, cv2.COLOR_BGR2LUV)
-            element.image = img
-    
+            
         if self.color == 'gray' and self.force == True:
-            img = element.image.copy()
             img[:,:,:3] = cv2.cvtColor(cv2.cvtColor(element.image, cv2.COLOR_BGR2GRAY), cv2.COLOR_GRAY2RGB)
-            element.image = img
-        
+
         if self.color == 'red' and self.force == True:
-            img = element.image.copy()
             img[:,:,1:3] = 0
-            element.image = img
-        
+            
         if self.color == 'green' and self.force == True:
-            img = element.image.copy()
             img[:,:,0] = 0
             img[:,:,2:3] = 0
-            element.image = img
-        
+            
         if self.color == 'blue' and self.force == True:
-            img = element.image.copy()
             img[:,:,0:2] = 0
-            element.image = img
-        
+            
         if self.color == 'purple' and self.force == True:
-            img = element.image.copy()
             img[:,:,1] = 0
-            element.image = img
-        
+            
         if self.color == 'yellow' and self.force == True:
-            img = element.image.copy()
             img[:,:,2] = 0
-            element.image = img
-        
+            
         if self.color == 'cyan' and self.force == True:
-            img = element.image.copy()
             img[:,:,0] = 0
-            element.image = img
+            
+        element.image = img
         
         return element
         
 class Brightness(Transformer):
-    def __init__(self, value=0, force=True):
+    def __init__(self, value=1, force=True):
         self.value = value
         self.force = force
             
@@ -107,7 +88,7 @@ class Brightness(Transformer):
         return element
 
 class Contrast(Transformer):
-    def __init__(self, value=0, force=True):
+    def __init__(self, value=1, force=True):
         self.value = value
         self.force = force
             
@@ -119,12 +100,12 @@ class Contrast(Transformer):
                 
         if self.force==True:
             img = element.image.copy()
-            img[:,:,:3] = cv2.addWeighted(img, self.value, np.zeros(img.shape, img.dtype), 0, 0)
+            img[:,:,:3] = cv2.addWeighted(img[:,:,:3], self.value, np.zeros((img.shape[0],img.shape[1],3), img.dtype), 0, 0)
             element.image = img
         return element
     
 class Saturation(Transformer):
-    def __init__(self, value=0, force=True):
+    def __init__(self, value=1, force=True):
         self.value = value
         self.force = force
             
