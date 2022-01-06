@@ -6,7 +6,7 @@ from flip.transformers.transformer import Transformer
 
 class Noise(Transformer):
     _SUPPORTED_MODES = {'gaussian_blur', 'avg_blur', 'median_blur', 'salt_pepper'}
-    def __init__(self, noise = 'gray', value = 0.5, force = True):
+    def __init__(self, noise = 'gaussian_blur', value = 0.5, force = True):
         self.noise = noise
         self.value = value
         self.force = force
@@ -37,7 +37,7 @@ class Noise(Transformer):
     
         if self.noise == 'median_blur' and self.force == True:
             img = element.image.copy()
-            img[:,:,:3] = cv2.medianBlur(element.image, ksize=self.value)[:,:,:3]
+            img[:,:,:3] = cv2.medianBlur(element.image, ksize=5)[:,:,:3]
             element.image = img
     
         if self.noise == 'salt_pepper' and self.force == True:
@@ -57,6 +57,6 @@ class Noise(Transformer):
             #coords = [list(a) for a in zip(list(coords[0]), list(coords[1]))]
             img1[coords[0],coords[1],:] = 0
             img[:,:,:3] = img1
-            element.image = img1
+            element.image = img
         
         return element

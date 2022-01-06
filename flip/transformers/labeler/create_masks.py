@@ -54,7 +54,5 @@ class CreateMasks(Transformer):
             coords = np.argwhere(element.created_image.cut_out.image)
             for i in coords:
                 masks[i[0],i[1]]=0
-        mask[:,:,0] = (masks+1)*255/len(classes)
-        mask[:,:,1] = (masks+1)*255/len(classes)
-        mask[:,:,2] = (masks+1)*255/len(classes)
-        return mask
+                
+        return masks
