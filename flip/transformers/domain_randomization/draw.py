@@ -24,8 +24,6 @@ class Draw(Transformer):
                 y=obj.y,
             )
 
-        print("Image created")
-
         element.created_image = Element(image=image, name='created_final')
 
         return element
